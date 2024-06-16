@@ -1,0 +1,233 @@
+/* styles.css */
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #3f51b5;
+}
+
+#calendar {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+#calendar .day {
+    width: 14%;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+#calendar .day.available {
+    background-color: #c8e6c9;
+}
+
+#calendar .day.unavailable {
+    background-color: #ffccbc;
+    cursor: not-allowed;
+}
+
+#calendar .day:hover:not(.unavailable) {
+    transform: scale(1.05);
+    background-color: #b2dfdb;
+}
+
+#bookingForm {
+    margin-top: 20px;
+    animation: fadeInUp 0.5s ease;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    margin: 10px 0 5px 0;
+    color: #333;
+}
+
+form select, form input, form button {
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 80%;
+    max-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+form select:focus, form input:focus, form button:focus {
+    border-color: #3f51b5;
+    box-shadow: 0 0 8px rgba(63, 81, 181, 0.5);
+}
+
+form button {
+    background-color: #3f51b5;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background-color: #303f9f;
+    transform: translateY(-2px);
+}
+
+#appointments {
+    margin-top: 40px;
+    animation: fadeInUp 1s ease;
+}
+
+#appointmentsList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#appointmentsList li {
+    background-color: #e3f2fd;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInSlideUp 0.5s ease forwards;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#appointmentsList li:nth-child(odd) {
+    background-color: #bbdefb;
+}
+
+#appointmentsList li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.remove-btn {
+    background-color: #ff5252;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #calendar .day {
+        width: 30%;
+    }
+
+    form select, form input, form button {
+        width: 100%;
+    }
+
+    #appointmentsList li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #appointmentsList li span {
+        margin-bottom: 10px;
+    }
+
+    #appointmentsList li .remove-btn {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    #calendar .day {
+        width: 45%;
+    }
+
+    h1, h2 {
+        font-size: 1.5em;
+    }
+}

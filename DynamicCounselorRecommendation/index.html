@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counselor Recommendations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Counselor Recommendations</h1>
+        
+        <!-- Search, Filter, and Sort Section -->
+        <div id="controls">
+            <input type="text" id="searchInput" placeholder="Search by name or specialty">
+            <button id="searchBtn">Search</button>
+            
+            <label for="filter">Filter by Specialty:</label>
+            <select id="filter">
+                <option value="all">All</option>
+                <option value="anxiety">Anxiety</option>
+                <option value="depression">Depression</option>
+                <option value="relationship">Relationship</option>
+            </select>
+
+            <label for="sort">Sort by:</label>
+            <select id="sort">
+                <option value="name">Name</option>
+                <option value="rating">Rating</option>
+                <option value="experience">Experience</option>
+            </select>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div id="recommendations"></div>
+
+        <!-- Load More Button -->
+        <button id="loadMoreBtn">Load More</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
